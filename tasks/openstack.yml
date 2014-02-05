@@ -1,0 +1,44 @@
+- name: Install Python packages
+  apt:
+    name={{ item }}
+    state=present
+  with_items:
+    - python-dev
+    - python-pip
+
+- name: Install NovaClient
+  pip:
+    name=python-novaclient
+    state=present
+
+- name: Install Heartbeat OpenStack script
+  copy:
+    src=FloatingIP
+    dest=/usr/lib/ocf/resource.d/heartbeat/FloatingIP
+    owner=root
+    group=root
+    mode=0755
+
+- name: Install Heartbeat OpenStack wrapper script
+  copy:
+    src=FloatingIP-wrapper
+    dest=/etc/heartbeat/resource.d/FloatingIP
+    owner=root
+    group=root
+    mode=0755
+
+- name: Create the OpenStack configuration directory
+  file:
+    path=/etc/openstack
+    state=directory
+    owner=root
+    group=root
+
+- name: Install OpenStack configuration file
+  template:
+    src=nova.conf.j2
+    dest=/etc/openstack/nova.conf
+    owner=root
+    group=root
+    mode=0600
+  notify: restart heartbeat
