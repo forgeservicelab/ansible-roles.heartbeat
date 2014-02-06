@@ -22,7 +22,7 @@ Role Variables
 - `OS_USERNAME` - OpenStack user name. Undefined, required only if the target environment is deployed on OpenStack.
 - `OS_PASSWORD` - OpenStack password for the above user. Undefined, required only if the target environment is deployed on OpenStack.
 - `ROUTER_PUBLIC_IP` - IP of the public interface of the target network's router. Undefined, required only if the target environment is deployed on OpenStack.
-- `OS_FLOATIP` - Floating IP assigned to the HA cluster. Expected to be declared on dependent roles or overriden on the global scope, required only if the target environment is deployed on OpenStack.
+- `OS_FLOATIP` - Floating (Virtual) IP assigned to the HA cluster. Expected to be declared on dependent roles or overriden on the global scope.
 - `heartbeat_service_name` - Name of the service to run on top of the Heartbeat/DRBD infrastructure. Expected to be declared on dependent roles or overriden on the global scope.
 - `IS_TARGET_OPENSTACK` - Boolean defining whether the target environment is deployed on OpenStack. Expected to be declared on the global scope.
 
