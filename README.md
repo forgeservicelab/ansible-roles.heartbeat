@@ -25,6 +25,7 @@ Role Variables
 - `OS_FLOATIP` - Floating (Virtual) IP assigned to the HA cluster. Expected to be declared on dependent roles or overriden on the global scope.
 - `heartbeat_service_name` - Name of the service to run on top of the Heartbeat/DRBD infrastructure. Expected to be declared on dependent roles or overriden on the global scope.
 - `IS_TARGET_OPENSTACK` - Boolean defining whether the target environment is deployed on OpenStack. Expected to be declared on the global scope.
+- `primary` - Flag that indicates the target host in which to run tasks that only need to be executed in one node. This is expected to be an inventory variable within the host group.
 
 Dependencies
 ------------
