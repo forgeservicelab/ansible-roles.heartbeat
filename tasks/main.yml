@@ -29,7 +29,7 @@
     dev="/dev/data/{{ group_names[0] }}"
 
 - name: Is metadata partition zeroed out?
-  script: "isheadzero.sh -d {{ block_device}}1 -s 128"
+  script: "isheadzero.sh -d {{ block_device }}1 -s 128"
   register: headzero
   failed_when: "0 != headzero.rc and 1 != headzero.rc"
   changed_when: False
@@ -83,6 +83,7 @@
 
 - name: Include OpenStack specific tasks
   include: openstack.yml
+  when: IS_TARGET_OPENSTACK
 
 - name: Configure Heartbeat
   template:
