@@ -21,7 +21,7 @@ Role Variables
 - `OS_PROJECT` - OpenStack project (tenant) name. Undefined, required only if the target environment is deployed on OpenStack.
 - `OS_USERNAME` - OpenStack user name. Undefined, required only if the target environment is deployed on OpenStack.
 - `OS_PASSWORD` - OpenStack password for the above user. Undefined, required only if the target environment is deployed on OpenStack.
-- `ROUTER_PUBLIC_IP` - IP of the public interface of the target network's router. Undefined, required only if the target environment is deployed on OpenStack.
+- `ALLOWED_IPS` - List of IPs of the machines allowed to access HA services. Defined here as they are usually common to all HA services in a given deployment; it can be overriden on client roles.
 - `OS_FLOATIP` - Floating (Virtual) IP assigned to the HA cluster. Expected to be declared on dependent roles or overriden on the global scope.
 - `hb_ipaddr_suffix` - If the target environment is **not** OpenStack HA handover is handled by the IPaddr script, this variable holds the CIDR netmask and interface parameters; it defaults to `/24/eth0` and it can be overriden on the mysql and nfs roles or on the global scope.
 - `heartbeat_service_name` - Name of the service to run on top of the Heartbeat/DRBD infrastructure. Expected to be declared on dependent roles or overriden on the global scope.
