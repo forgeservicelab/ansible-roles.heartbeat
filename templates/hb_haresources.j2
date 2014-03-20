@@ -1,1 +1,1 @@
-{{ hostvars[groups[group_names[0]][0]]['ansible_hostname'] }} {% if IS_TARGET_OPENSTACK %}FloatingIP::/etc/openstack/nova.conf{% else %}IPaddr::{{ OS_FLOATIP }}{{ hb_ipaddr_suffix }}{% endif %} drbddisk::{{ group_names[0] }} Filesystem::/dev/drbd0::/data::ext4 {{ heartbeat_service_name }}
+{{ hostvars[groups[group_names[0]][0]]['ansible_hostname'] }} {% if IS_TARGET_OPENSTACK %}FloatingIP::/etc/openstack/nova.conf{% else %}IPaddr::{{ OS_FLOATIP }}{{ hb_ipaddr_suffix }}{% endif %} {{ heartbeat_service_name }}

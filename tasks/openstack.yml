@@ -1,11 +1,19 @@
 ---
-- name: Install Python packages
+- name: Install Python devel packages
   apt:
     name={{ item }}
     state=present
   with_items:
     - python-dev
-    - python-pip
+
+- name: Remove python-pip distro package
+  apt:
+    name=python-pip
+    state=absent
+
+- name: Install pip
+  easy_install:
+    name=pip
 
 - name: Install NovaClient
   pip:
