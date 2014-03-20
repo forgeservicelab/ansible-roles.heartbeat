@@ -25,6 +25,7 @@
     group=root
     mode=0640
   notify: restart heartbeat
+  when: configure_resources
 
 - name: Configure Heartbeat Auth
   template:
