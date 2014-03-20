@@ -42,7 +42,7 @@ Example Playbook
 
 To use this role from a playbook:
 
-```
+```YAML
     - hosts: servers
       roles:
          - { role: heartbeat }
@@ -50,7 +50,7 @@ To use this role from a playbook:
 
 To use this role from another role that overrides heartbeat resource configuration, on `meta/main.yml`:
 
-```
+```YAML
 ---
 dependencies:
   - { role: heartbeat, configure_resources: False }
