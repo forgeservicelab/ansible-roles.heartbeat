@@ -16,7 +16,6 @@ This role partitions block devices to be used as distributed RAID devices, make 
 Role Variables
 --------------
 
-- `block_device` - The disk to be partitioned and used as a DRBD device, **All data on this device will be lost!**. Defaults to `/dev/vdb` it is expected to be overriden on the global scope.
 - `configure_resources` - Whether to upload this role's template for `/etc/heartbeat/haresources` or leave unconfigure for a client role to fill in. Defaults to `True`.
 - `hb_auth` - A random string of characters for heartbeat node authentication. While it has a default value, it is expected to be overriden on a HA cluster basis.
 - `hb_ipaddr_suffix` - If the target environment is **not** OpenStack HA handover is handled by the IPaddr script, this variable holds the CIDR netmask and interface parameters; it defaults to `/24/eth0` and it can be overriden on the mysql and nfs roles or on the global scope.
