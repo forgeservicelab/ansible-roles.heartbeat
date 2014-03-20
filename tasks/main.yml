@@ -1,10 +1,8 @@
 ---
-- name: Install LVM, DRBD and Heartbeat
+- name: Install Heartbeat
   apt:
-    pkg={{ item }}
+    pkg=heartbeat
     state=present
-  with_items:
-    - heartbeat
 
 - name: Include OpenStack specific tasks
   include: openstack.yml
