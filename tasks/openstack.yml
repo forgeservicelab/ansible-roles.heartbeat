@@ -1,54 +1,54 @@
 ---
 - name: Install Python devel packages
   apt:
-    name={{ item }}
-    state=present
+    name: "{{ item }}"
+    state: present
   with_items:
     - python-dev
     - python-setuptools
 
 - name: Remove python-pip distro package
   apt:
-    name=python-pip
-    state=absent
+    name: python-pip
+    state: absent
 
 - name: Install pip
   easy_install:
-    name=pip
+    name: pip
 
 - name: Install NovaClient
   pip:
-    name=python-novaclient
-    state=present
+    name: python-novaclient
+    state: present
 
 - name: Install Heartbeat OpenStack script
   copy:
-    src=FloatingIP
-    dest=/usr/lib/ocf/resource.d/heartbeat/FloatingIP
-    owner=root
-    group=root
-    mode=0755
+    src: FloatingIP
+    dest: /usr/lib/ocf/resource.d/heartbeat/FloatingIP
+    owner: root
+    group: root
+    mode: 0755
 
 - name: Install Heartbeat OpenStack wrapper script
   copy:
-    src=FloatingIP-wrapper
-    dest=/etc/heartbeat/resource.d/FloatingIP
-    owner=root
-    group=root
-    mode=0755
+    src: FloatingIP-wrapper
+    dest: /etc/heartbeat/resource.d/FloatingIP
+    owner: root
+    group: root
+    mode: 0755
 
 - name: Create the OpenStack configuration directory
   file:
-    path=/etc/openstack
-    state=directory
-    owner=root
-    group=root
+    path: /etc/openstack
+    state: directory
+    owner: root
+    group: root
 
 - name: Install OpenStack configuration file
   template:
-    src=nova.conf.j2
-    dest=/etc/openstack/nova.conf
-    owner=root
-    group=root
-    mode=0600
+    src: nova.conf.j2
+    dest: /etc/openstack/nova.conf
+    owner: root
+    group: root
+    mode: 0600
   notify: restart heartbeat

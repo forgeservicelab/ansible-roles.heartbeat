@@ -1,5 +1,5 @@
 ---
 - name: restart heartbeat
   service:
-    name=heartbeat
-    state=restarted
+    name: heartbeat
+    state: restarted
