@@ -2,3 +2,7 @@
 configure_resources: True
 hb_auth: cDVNm2pGqbTSn9GhXunu
 hb_ipaddr_suffix: /24/eth0
+OS_PROJECT:
+OS_USERNAME:
+OS_PASSWORD:
+ALLOWED_IPS: []
