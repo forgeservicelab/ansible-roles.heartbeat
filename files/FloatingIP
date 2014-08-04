@@ -6,6 +6,7 @@ import sys
 import json
 import urllib2
 from novaclient.v1_1.client import Client
+from novaclient.exceptions import ClientException
 
 METADATA_URL = 'http://169.254.169.254/openstack/latest/meta_data.json'
 
@@ -19,7 +20,7 @@ def start():
 def stop():
     try:
         get_server().remove_floating_ip(opts['OS_FLOATIP'])
-    except ClientException, e:
+    except ClientException as e:
         if e.code == 422:
             pass
         else:
@@ -59,6 +60,6 @@ try:
         opts[k] = v.strip()
 
     commands[sys.argv[1]]() if sys.argv[1] in commands else unimplemented()
-except Exception, e:
+except Exception as e:
     syslog.syslog(syslog.LOG_ERR, e)
 
