@@ -19,6 +19,7 @@
 - name: Install NovaClient
   pip:
     name: python-novaclient
+    version: 2.17.0
     state: present
 
 - name: Install Heartbeat OpenStack script
