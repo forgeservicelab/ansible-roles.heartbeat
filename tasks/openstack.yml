@@ -5,22 +5,19 @@
     state: present
   with_items:
     - python-dev
+    - python-pip
     - python-setuptools
 
-- name: Remove python-pip distro package
-  apt:
-    name: python-pip
-    state: absent
-
-- name: Install pip
-  easy_install:
-    name: pip
-
-- name: Install NovaClient
+- name: Install OpenstackClients
   pip:
-    name: python-novaclient
-    version: 2.17.0
+    name: "{{ item }}"
     state: present
+  with_items:
+    - python-keystoneclient==0.11.2
+    - python-novaclient==2.20.0
+
+- name: Update distribute, fixes version problems with nova
+  command: pip install --upgrade distribute
 
 - name: Install Heartbeat OpenStack script
   copy:
