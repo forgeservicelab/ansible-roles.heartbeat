@@ -8,12 +8,6 @@
   include: openstack.yml
   when: IS_TARGET_OPENSTACK
 
-- name: Stop Heartbeat resources for configuration
-  service:
-    name: heartbeat
-    state: stopped
-  notify: restart heartbeat
-
 - name: Configure Heartbeat
   template:
     src: hb_ha.cf.j2
