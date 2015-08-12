@@ -6,8 +6,8 @@
 #		OCF RA FloatingIP for more information.
 #
 # Author:	Jorge Rodriguez A.K.A. Tiriel <jorge.rodriguez@forgeservicelab.fi>
-# License:	GNU General Public License (GPL)
-# Copyright:	(C) 2014 Digile Ltd.
+# License:	MIT
+# Copyright:	(c) 2015 DIGILE Ltd.
 #
 # An example usage in /etc/ha.d/haresources: 
 #       node1  10.0.0.170 FloatingIP::/etc/opesntack/nova.conf

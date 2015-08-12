@@ -2,7 +2,7 @@
 galaxy_info:
   author: Jorge Rodriguez
   description: Sets up the groundwork for a Highly Available service based on DRBD and Heartbeat.
-  company: FORGE Service Lab
+  company: DIGILE Ltd.
   # Some suggested licenses:
   # - BSD (default)
   # - MIT
@@ -10,7 +10,7 @@ galaxy_info:
   # - GPLv3
   # - Apache
   # - CC-BY
-  license: GPLv3
+  license: MIT
   min_ansible_version: 1.8
   #
   # Below are all platforms currently available. Just uncomment
